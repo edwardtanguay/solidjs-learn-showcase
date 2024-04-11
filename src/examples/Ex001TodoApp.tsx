@@ -4,9 +4,6 @@ import { Todo } from "../types";
 import { getNextHighestId } from "../tools";
 
 export const Ex001TodoApp = () => {
-	const ESCAPE_KEY = 27;
-	const ENTER_KEY = 13;
-
 	const [todos, setTodos] = createSignal([
 		{ id: 1, title: "Learn SolidJS", completed: false },
 		{ id: 2, title: "Build a Todo App", completed: true },
