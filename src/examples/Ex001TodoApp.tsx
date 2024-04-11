@@ -51,7 +51,7 @@ export const Ex001TodoApp = () => {
 			</form>
 			<Show when={todos().length > 0}>
 				<h2 class="text-md mt-3 mb-1">
-					There are {todos().length} todos:
+					{todos().reduce((total:number, todo:Todo) => total += todo.completed ? 1 : 0, 0)} of {todos().length} todos completed:
 				</h2>
 				<ul class="list-none">
 					<For each={todos()}>

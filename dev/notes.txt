@@ -1,2 +1,3 @@
 - x reorganize types etc.
-- .. figure out blank
+- x figure out blank
+- .. do "1 of 3 completed"
