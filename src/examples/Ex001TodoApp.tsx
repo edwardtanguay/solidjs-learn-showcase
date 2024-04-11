@@ -45,6 +45,10 @@ export const Ex001TodoApp = () => {
 		}
 	};
 
+	const handleDeleteItem = (todo: Todo) => {
+		alert(todo.title)
+	}
+
 	return (
 		<section>
 			<form onSubmit={(e) => e.preventDefault()}>
@@ -65,7 +69,7 @@ export const Ex001TodoApp = () => {
 								>
 									{todo.title}
 								</label>
-								<button>
+								<button onclick={() => handleDeleteItem(todo)}>
 									<BsTrash3Fill class="text-[.8rem] text-red-950 hover:text-red-900"/>
 								</button>
 							</li>
