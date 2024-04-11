@@ -35,6 +35,7 @@ export const Ex001TodoApp = () => {
 	};
 
 	const handleToggleCompleted = (todo: Todo) => {
+		console.log('todo', todo);
 		todo.completed = !todo.completed;
 		const _todos = structuredClone(todos());
 		setTodos(_todos);
