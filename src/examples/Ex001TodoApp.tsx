@@ -9,8 +9,9 @@ export const Ex001TodoApp = () => {
 		{ id: 2, title: "Build a Todo App", completed: true },
 		{ id: 3, title: "Explore SolidJS features", completed: false },
 	]);
+	const [newTitle, setNewTitle] = createSignal("nnn");
 
-	const addTodo = (e: Event) => {
+	const handleAddTodo = (e: Event) => {
 		e.preventDefault();
 		const keyboardEvent = e as KeyboardEvent;
 		if (e.target) {
@@ -24,19 +25,24 @@ export const Ex001TodoApp = () => {
 						completed: false,
 					},
 				]);
+				setNewTitle('');
 			}
 		}
 	};
 
 	const handleDeleteItem = (todo: Todo) => {
-		const _todos = todos().filter(m => m.id !== todo.id);
+		const _todos = todos().filter((m) => m.id !== todo.id);
 		setTodos(_todos);
 	};
 
 	return (
 		<section>
 			<form onSubmit={(e) => e.preventDefault()}>
-				<input placeholder="enter todo" onKeyUp={(e) => addTodo(e)} />
+				<input
+					placeholder="enter todo"
+					value={newTitle()}
+					onKeyUp={(e) => handleAddTodo(e)}
+				/>
 			</form>
 			<Show when={todos().length > 0}>
 				<h2 class="text-md mt-3 mb-1">

@@ -1,1 +1,2 @@
-- .. reorganize types etc.
+- x reorganize types etc.
+- .. figure out blank
