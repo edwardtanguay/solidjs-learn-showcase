@@ -67,8 +67,7 @@ export const Ex001TodoApp = () => {
 									class="select-none cursor-pointer"
 									for={`todo-${todo.id}`}
 								>
-									{todo.title} -{" "}
-									{todo.completed ? "completed" : "todo"}
+									<span class={todo.completed ? 'line-through' : ''}>{todo.title}</span>
 								</label>
 								<button onclick={() => handleDeleteItem(todo)}>
 									<BsTrash3Fill class="text-[.8rem] text-red-950 hover:text-red-900" />
