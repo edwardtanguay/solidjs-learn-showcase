@@ -9,19 +9,18 @@ export const Ex001TodoApp = () => {
 		{ id: 2, title: "Build a Todo App", completed: true },
 		{ id: 3, title: "Explore SolidJS features", completed: false },
 	]);
-	const [newTitle, setNewTitle] = createSignal("nnn");
+	const [newTitle, setNewTitle] = createSignal("");
 
-	const handleAddTodo = (e: Event) => {
-		e.preventDefault();
+	const handleChangeTodo = (e: Event) => {
 		const keyboardEvent = e as KeyboardEvent;
+		setNewTitle((e.target as HTMLInputElement).value)
 		if (e.target) {
-			const title = (e.target as HTMLInputElement).value;
 			if (keyboardEvent.code === "Enter") {
 				setTodos((todos) => [
 					...todos,
 					{
 						id: getNextHighestId(todos),
-						title,
+						title: newTitle(),
 						completed: false,
 					},
 				]);
@@ -41,7 +40,7 @@ export const Ex001TodoApp = () => {
 				<input
 					placeholder="enter todo"
 					value={newTitle()}
-					onKeyUp={(e) => handleAddTodo(e)}
+					onKeyUp={(e) => handleChangeTodo(e)}
 				/>
 			</form>
 			<Show when={todos().length > 0}>
