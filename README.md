@@ -1,6 +1,6 @@
 # solidjs-learn-showcase
 
-This is a showcase site that I created while taking a course on SolidJS. 
+This is a showcase site that I am creating while taking a course on SolidJS. 
 
 - repo: https://github.com/edwardtanguay/solidjs-learn-showcase
 - live: https://solidjs-learn-showcase.vercel.app
