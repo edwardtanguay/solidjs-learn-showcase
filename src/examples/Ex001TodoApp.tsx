@@ -1,25 +1,11 @@
 import { For, Show, createSignal } from "solid-js";
 import { BsTrash3Fill } from "solid-icons/bs";
+import { Todo } from "../types";
+import { getNextHighestId } from "../tools";
 
 export const Ex001TodoApp = () => {
 	const ESCAPE_KEY = 27;
 	const ENTER_KEY = 13;
-
-	type Todo = {
-		id: number;
-		title: string;
-		completed: boolean;
-	};
-
-	function getNextHighestId(todos: Todo[]) {
-		let maxId = 0;
-		todos.forEach((todo) => {
-			if (todo.id > maxId) {
-				maxId = todo.id;
-			}
-		});
-		return maxId + 1;
-	}
 
 	const [todos, setTodos] = createSignal([
 		{ id: 1, title: "Learn SolidJS", completed: false },
@@ -46,8 +32,8 @@ export const Ex001TodoApp = () => {
 	};
 
 	const handleDeleteItem = (todo: Todo) => {
-		alert(todo.title)
-	}
+		alert(todo.title);
+	};
 
 	return (
 		<section>
@@ -70,7 +56,7 @@ export const Ex001TodoApp = () => {
 									{todo.title}
 								</label>
 								<button onclick={() => handleDeleteItem(todo)}>
-									<BsTrash3Fill class="text-[.8rem] text-red-950 hover:text-red-900"/>
+									<BsTrash3Fill class="text-[.8rem] text-red-950 hover:text-red-900" />
 								</button>
 							</li>
 						)}
