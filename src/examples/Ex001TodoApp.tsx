@@ -1,4 +1,5 @@
 import { For, Show, createSignal } from "solid-js";
+import { BsTrash3Fill } from "solid-icons/bs";
 
 export const Ex001TodoApp = () => {
 	const ESCAPE_KEY = 27;
@@ -50,13 +51,23 @@ export const Ex001TodoApp = () => {
 				<input placeholder="enter todo" onKeyUp={(e) => addTodo(e)} />
 			</form>
 			<Show when={todos().length > 0}>
-				<h2 class="text-md mt-3 mb-1">There are {todos().length} todos:</h2>
+				<h2 class="text-md mt-3 mb-1">
+					There are {todos().length} todos:
+				</h2>
 				<ul class="list-none">
 					<For each={todos()}>
 						{(todo) => (
 							<li class="flex gap-2">
 								<input type="checkbox" id={`todo-${todo.id}`} />
-								<label class="select-none cursor-pointer" for={`todo-${todo.id}`}>{todo.title}</label>
+								<label
+									class="select-none cursor-pointer"
+									for={`todo-${todo.id}`}
+								>
+									{todo.title}
+								</label>
+								<button>
+									<BsTrash3Fill class="text-[.8rem] text-red-950 hover:text-red-900"/>
+								</button>
 							</li>
 						)}
 					</For>
