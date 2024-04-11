@@ -29,7 +29,8 @@ export const Ex001TodoApp = () => {
 	};
 
 	const handleDeleteItem = (todo: Todo) => {
-		alert(todo.title);
+		const _todos = todos().filter(m => m.id !== todo.id);
+		setTodos(_todos);
 	};
 
 	return (
