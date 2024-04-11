@@ -13,7 +13,7 @@ export const Ex001TodoApp = () => {
 
 	const handleChangeTodo = (e: Event) => {
 		const keyboardEvent = e as KeyboardEvent;
-		setNewTitle((e.target as HTMLInputElement).value)
+		setNewTitle((e.target as HTMLInputElement).value);
 		if (e.target) {
 			if (keyboardEvent.code === "Enter") {
 				setTodos((todos) => [
@@ -24,13 +24,19 @@ export const Ex001TodoApp = () => {
 						completed: false,
 					},
 				]);
-				setNewTitle('');
+				setNewTitle("");
 			}
 		}
 	};
 
 	const handleDeleteItem = (todo: Todo) => {
 		const _todos = todos().filter((m) => m.id !== todo.id);
+		setTodos(_todos);
+	};
+
+	const handleToggleCompleted = (todo: Todo) => {
+		todo.completed = !todo.completed;
+		const _todos = structuredClone(todos());
 		setTodos(_todos);
 	};
 
@@ -51,12 +57,18 @@ export const Ex001TodoApp = () => {
 					<For each={todos()}>
 						{(todo) => (
 							<li class="flex gap-2">
-								<input type="checkbox" id={`todo-${todo.id}`} />
+								<input
+									type="checkbox"
+									id={`todo-${todo.id}`}
+									checked={todo.completed}
+									onInput={() => handleToggleCompleted(todo)}
+								/>
 								<label
 									class="select-none cursor-pointer"
 									for={`todo-${todo.id}`}
 								>
-									{todo.title}
+									{todo.title} -{" "}
+									{todo.completed ? "completed" : "todo"}
 								</label>
 								<button onclick={() => handleDeleteItem(todo)}>
 									<BsTrash3Fill class="text-[.8rem] text-red-950 hover:text-red-900" />
