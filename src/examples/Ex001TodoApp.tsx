@@ -1,7 +1,10 @@
+import { createSignal } from "solid-js";
+
 export const Ex001TodoApp = () => {
+	const [todos, setTodos] = createSignal([]);
 	return (
-		<>
-			<p>todo app</p>
-		</>
+		<section>
+			<input placeholder="enter todo"/>
+		</section>
 	);
 };
