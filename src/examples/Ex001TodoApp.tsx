@@ -50,12 +50,13 @@ export const Ex001TodoApp = () => {
 				<input placeholder="enter todo" onKeyUp={(e) => addTodo(e)} />
 			</form>
 			<Show when={todos().length > 0}>
-				<h2 class="text-md mt-3">There are {todos().length} todos:</h2>
-				<ul class="list-disc ml-6">
+				<h2 class="text-md mt-3 mb-1">There are {todos().length} todos:</h2>
+				<ul class="list-none">
 					<For each={todos()}>
 						{(todo) => (
-							<li>
-								{todo.title} ({todo.id})
+							<li class="flex gap-2">
+								<input type="checkbox" id={`todo-${todo.id}`} />
+								<label class="select-none cursor-pointer" for={`todo-${todo.id}`}>{todo.title}</label>
 							</li>
 						)}
 					</For>
