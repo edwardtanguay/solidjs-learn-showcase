@@ -1,3 +1,4 @@
 - x reorganize types etc.
 - x figure out blank
-- .. do "1 of 3 completed"
+- x do "1 of 3 completed"
+- .. do Ex002TodoAppWithStore
