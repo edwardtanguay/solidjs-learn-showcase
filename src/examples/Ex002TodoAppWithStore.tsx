@@ -40,11 +40,12 @@ export const Ex002TodoAppWithStore = () => {
 	};
 
 	const handleToggleCompleted = (todo: Todo) => {
-		setStore("todos", 0, "completed", (completed: boolean) => !completed);
+		setStore("todos", m => m.id === todo.id, "completed", (completed: boolean) => !completed);
 	};
 
 	return (
 		<section>
+			<p class="devNotes">uses createStore for todos</p>
 			<form onSubmit={(e) => e.preventDefault()}>
 				<input
 					placeholder="enter todo"

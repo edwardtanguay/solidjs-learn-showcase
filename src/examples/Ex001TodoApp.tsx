@@ -43,6 +43,7 @@ export const Ex001TodoApp = () => {
 
 	return (
 		<section>
+			<p class="devNotes">uses createSignal for todos</p>
 			<form onSubmit={(e) => e.preventDefault()}>
 				<input
 					placeholder="enter todo"
