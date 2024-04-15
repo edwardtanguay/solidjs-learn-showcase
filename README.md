@@ -13,3 +13,7 @@ This is a showcase site that I am creating while taking a course on SolidJS.
 - clone locally
 - `npm i`
 - `npm run dev`
+
+## known issues
+
+- could not get context to work with TypeScript (Ex003CounterWithContext)
